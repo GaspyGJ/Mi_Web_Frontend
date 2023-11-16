@@ -1,0 +1,78 @@
+<section class="container-seccion">
+  <div class="titulo-seccion">
+    <button (click)="volver()" class="icon-back">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <h2>Educación</h2>
+  </div>
+
+  <div *ngIf="!isLoad" style="display: flex; justify-content: center">
+    <span class="loader"></span>
+  </div>
+  <div *ngIf="isError">
+    <mat-card>
+      <mat-card-header style="margin: 0 auto">
+        <mat-card-title>Error</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>No se pudo conectar al servidor.</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div *ngIf="!isError && isLoad && educaciones.length == 0">
+    <mat-card>
+      <mat-card-header style="margin: 0 auto">
+        <mat-card-title>Lista de educaciones vacia</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>No hay datos en la base de datos.</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div *ngIf="isLoad">
+    <div *ngIf="isLogged" style="background-color: whitesmoke;">
+      <button mat-icon-button (click)="addEducacion()">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button mat-icon-button (click)="editOrdenEducation()">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+
+    <div class="container-elementos-seccion">
+      <mat-card class="card" *ngFor="let educacion of educaciones">
+        <mat-card-header style="margin: 0 auto">
+          <mat-card-title>{{ educacion.titulo }}</mat-card-title>
+          <mat-card-subtitle
+            >{{ educacion.anioInicio }} -
+            {{ educacion.anioFin }}</mat-card-subtitle
+          >
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ educacion.descripcion }}</p>
+          <p>
+            <small>{{ educacion.estado }}</small>
+          </p>
+
+          <button
+            class="btn-certificado"
+            (click)="abrirPdf(educacion.id!)"
+            *ngIf="educacion.certificado"
+          >
+            Certificado
+          </button>
+        </mat-card-content>
+        <mat-card-actions *ngIf="isLogged">
+          <button mat-icon-button (click)="editEducacion(educacion.id)">
+            <mat-icon color="red">edit</mat-icon>
+          </button>
+
+          <button mat-icon-button (click)="dropEducacion(educacion.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</section>

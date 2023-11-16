@@ -1,0 +1,52 @@
+<div class="container-seccion">
+    <form class="flex-lista-vertical flex-center" *ngIf="experiencia" ngNativeValidate>
+        <div>
+            <h3>Editar Experiencia:</h3>
+            <p>Escribe sobre el/los atributo/s que deseas cambiar - Los atributos que no se editen quedaran como estan
+            </p>
+        </div>
+        <div class="div-p-input">
+            <p>Titulo :</p>
+            <input type="text" #titulo value={{experiencia.titulo}} placeholder="ingresar Titulo">
+        </div>
+        <div class="div-p-input">
+            <p>Descripcion :</p>
+            <input type="text" #descripcion value={{experiencia.descripcion}} placeholder="ingresar descripcion">
+        </div>
+        <div class="div-p-input">
+            <p>Año de Ingreso :</p>
+            <select #anioStart id="years"  class="input-select-items">
+                <option [selected]="experiencia.anioInicio==year? true:false"  *ngFor="let year of yearsList" value={{year}}>{{year}}</option>
+            </select>
+        </div>
+        <div class="div-p-input">
+            <p>Año de Egreso :</p>
+            <select #anioEnd id="years" class="input-select-items">
+                <option [selected]="experiencia.anioFin==year? true:false"  *ngFor="let year of yearsList" value={{year}}>{{year}}</option>
+            </select>
+        </div>
+        <div class="div-p-input">
+            <p>Tipo Experiencia :</p>
+            <input type="text" #tipoExperiencia value={{experiencia.tipoExperiencia}}
+                placeholder="ingresar Tipo de Experiencia">
+        </div>
+        <div class="div-p-input">
+            <p>Tegnologias Utilizadas :</p>
+            <input type="text" #tegnologiasUtilizadas value={{experiencia.tegnologiasUtilizadas}}
+                placeholder="ingresar Tegnologias Utilizadas">
+        </div>
+        <div class="div-p-input">
+            <p>Link:</p>
+            <input type="text" #link value={{experiencia.link}} placeholder="ingresar link">
+        </div>
+        <div class="container-a-btn">
+            <div>
+                <a mat-dialog-close>Volver</a>
+            </div>
+            <button type="button"
+                (click)="actualizar(titulo.value,descripcion.value,anioStart.value,anioEnd.value,tipoExperiencia.value,tegnologiasUtilizadas.value,link.value)">
+                Guardar Experiencia
+            </button>
+        </div>
+    </form>
+</div>

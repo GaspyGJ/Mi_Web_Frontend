@@ -1,0 +1,11 @@
+.btn-certificado {
+  border: none;
+  background-color: var(--azul-medio-transparente);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.btn-certificado:hover {
+  background-color: var(--azul-fuerte-transparente);
+  cursor: pointer;
+}

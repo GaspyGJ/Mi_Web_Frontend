@@ -1,0 +1,53 @@
+<div class="container-seccion">
+    <form class="flex-lista-vertical flex-center" ngNativeValidate>
+            <h3>Agregar Proyecto:</h3>
+            <p>Escribe sobre el/los atributo/s que deseas cambiar - Los atributos que no se editen quedaran como estan
+            </p>
+            <div class="div-p-input">
+                <p>Titulo :</p>
+                <input type="text" #titulo value={{default.titulo}} placeholder="ingresar titulo">
+            </div>
+            <div class="div-p-input">
+                <p>Descripcion :</p>
+                <input type="text" #descripcion value={{default.descripcion}}
+                    placeholder="ingresar descripcion">
+            </div>
+            <div class="div-p-input">
+                <p>urlGitHub :</p>
+                <input type="text" #urlGitHub value={{default.gitHubWeb}} placeholder="ingresar url de github">
+            </div>
+            <div class="div-p-input">
+                <p>urlAppWeb :</p>
+                <input type="text" #urlAppWeb value={{default.direccionWeb}}
+                    placeholder="ingresar url de app Web">
+            </div>
+
+            <div class="div-p-input">
+                <p>Imagenes :</p>
+                <input type="file" #imagen (change)="obtenerArchivo($event)" accept="image/*" placeholder="ingresar url de app Web">
+
+                <button type="button" class="btn" (click)="addFoto()"> Agregar Imagen</button>
+
+                <ul *ngFor="let imagen of listaimagenSeleccionadaEnBase64">
+                    <li>
+                        <img width="100em" height="100em" [src]="imagen">
+                        <!--
+                        <button id="btn-drop" type="button" (click)="dropFoto(imagen)">
+                            <mat-icon style="color:red">delete</mat-icon>
+                        </button>
+                        -->
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="container-a-btn">
+                <div>
+                    <a mat-dialog-close>Volver</a>
+                </div>
+            <button type="button"
+                (click)="guardarProyecto(titulo.value,descripcion.value,urlGitHub.value,urlAppWeb.value)">
+                Guardar Proyecto
+            </button>
+            </div>
+        </form>
+</div>

@@ -1,0 +1,20 @@
+<div id="Seccion-Edit">
+    <div id="form-Seccion-Edit">
+        <h3 class="titulo-de-seccion" style="display: block; font-size: 2em;">Editar Orden Skills:</h3>
+        <div id="after-load2">
+            <ul id="list-hard-skills" cdkDropList (cdkDropListDropped)="DropeoHardSkill($event)" >
+                <li class="li_hs" *ngFor="let hardSkill of hardSkills" id={{hardSkill.id}}  cdkDrag>
+                    <p>{{hardSkill.titulo}}</p>
+                </li>
+            </ul>
+            <div class="container-a-btn">
+                <div>
+                    <a mat-dialog-close>Volver</a>
+                </div>
+                <button type="button" (click)="aceptar()">
+                    Guardar orden
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

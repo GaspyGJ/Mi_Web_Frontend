@@ -1,0 +1,32 @@
+   <!--
+<div id="Seccion-Edit" *ngFor="let persona of personas" >
+
+        <form id="form-Seccion-Edit" ngNativeValidate>
+            <h3>Editar Persona:</h3>
+            <p>Escribe sobre el/los atributo/s que deseas cambiar - Los atributos que no se editen quedaran como estan</p>
+            <input type="text" #nombre value={{persona.nombre}} placeholder="ingresar nombre">
+            <input type="text" #apellido value={{persona.apellido}} placeholder="ingresar apellido">
+            <input type="text" #nombrePuesto value={{persona.nombrePuesto}} placeholder="ingresar nombre puesto">
+            <input type="text" #descripcion value={{persona.descripcion}} placeholder="ingresar descripcion">
+            <input type="text" #domicilio value={{persona.domicilio}} placeholder="ingresar domicilio">
+            <input type="number" #edad min="18" max="99" value={{persona.edad}} placeholder="ingresar edad">
+            <div class="div-p-input">
+                <p>Foto perfil:</p>
+                <input type="file" #imagen (change)="obtenerArchivo($event)" accept="image/*" placeholder="ingresar imagen">
+            </div>
+            <div *ngIf="foto">
+                <img width="100em" height="100em" [src]="foto.archivo">
+            </div>
+            <div class="container-a-btn">
+                <div>
+                    <a mat-dialog-close>Volver</a>
+                </div>
+                <button type="button"  [disabled]="!persona"
+                    (click)="actualizar(nombre.value,apellido.value,edad.value,domicilio.value,nombrePuesto.value,descripcion.value)">
+                    Guardar Cambios</button>
+            </div>
+
+        </form>
+    </div>
+
+   --> 

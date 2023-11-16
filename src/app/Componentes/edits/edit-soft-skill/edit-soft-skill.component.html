@@ -1,0 +1,33 @@
+<div class="container-seccion">
+    <form class="flex-lista-vertical flex-center" *ngIf="softSkill" ngNativeValidate>
+        <h3>Editar Soft Skill:</h3>
+        <p>Escribe sobre el/los atributo/s que deseas cambiar - Los atributos que no se editen quedaran como estan</p>
+        <div class="div-p-input">
+            <p>Titulo :</p>
+            <input type="text" #titulo value={{softSkill.titulo}} placeholder="ingresar titulo">
+        </div>
+        <div class="div-p-input">
+            <p>Ancho :</p>
+            <input type="number" #ancho value={{softSkill.anchoIcon}} placeholder="ingresar ancho">
+        </div>
+        <div class="div-p-input">
+            <p>Alto :</p>
+            <input type="number" #alto value={{softSkill.altoIcon}} placeholder="ingresar alto">
+        </div>
+        <div class="div-p-input">
+            <p>Icon :</p>
+            <input type="file" #imagen (change)="obtenerArchivo($event)" accept="image/*" placeholder="ingresar imagen">
+        </div>
+        <div >
+            <img width="100em" height="100em" [src]="iconBase64" />
+        </div>
+        <div class="container-a-btn">
+            <div>
+                <a mat-dialog-close>Volver</a>
+            </div>
+            <button type="button" (click)="actualizar(titulo.value,alto.value,ancho.value)">
+            Guardar
+            </button>
+        </div>
+    </form>
+</div>

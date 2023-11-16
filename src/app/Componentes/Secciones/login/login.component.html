@@ -1,0 +1,69 @@
+<section class="container-seccion">
+  <div class="titulo-seccion">
+    <button (click)="volver()" class="icon-back">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <h2>LogIn</h2>
+  </div>
+
+  <div class="container-elementos-seccion">
+    <mat-card class="card card-no-hover">
+      <mat-card-header>
+        <mat-card-title>Ingresar</mat-card-title>
+        <mat-card-subtitle
+          >Ingresar permite modificar los elementos de la página en tiempo real.
+          Reservado para el propietario.</mat-card-subtitle
+        >
+      </mat-card-header>
+      <mat-card-content>
+        <form #Formulario ngNativeValidate class="form-Seccion">
+          <input
+            #nombreUsuario
+            type="text"
+            name="nombreUsuario"
+            placeholder="Escriba nombre"
+            required
+          />
+          <input
+            #password
+            type="password"
+            name="password"
+            placeholder="Escriba contraseña"
+            required
+          />
+          <mat-card-actions>
+            <button
+              type="button"
+              (click)="onLogin(nombreUsuario.value, password.value)"
+              mat-button
+            >
+              Enviar
+            </button>
+            <div
+              *ngIf="isLoading"
+              style="display: flex; justify-content: center; width: 100%"
+            >
+              <span class="loader-horizontal"></span>
+            </div>
+          </mat-card-actions>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>
+
+<dialog class="dialog" id="dialog-login">
+  <mat-card class="card card-no-hover">
+    <mat-card-header>
+      <mat-card-title
+        >{{ dialogTitle }} <mat-icon>error_outline</mat-icon></mat-card-title
+      >
+      <mat-card-subtitle>
+        <p>Intente con otra combinación de usuario y contraseña.</p>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-button (click)="closeDialog()">Aceptar</button>
+    </mat-card-actions>
+  </mat-card>
+</dialog>

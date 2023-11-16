@@ -1,0 +1,18 @@
+<div id="Seccion-Edit">
+    <div id="form-Seccion-Edit">
+        <h3 class="titulo-de-seccion" style="display: block; font-size: 2em;"> Editar Orden Educacion:</h3>
+            <ul id="list-educaciones" cdkDropList (cdkDropListDropped)="DropeoEducacion($event)">
+                <li class="li_e" *ngFor=" let educacion of educaciones" id={{educacion.id}} cdkDrag>
+                    <p>{{educacion.descripcion}}</p>
+                </li>
+            </ul>
+            <div class="container-a-btn">
+                <div>
+                    <a mat-dialog-close>Volver</a>
+                </div>
+                <button type="button" (click)="aceptar()">
+                    Guardar orden
+                </button>
+            </div>
+    </div>
+</div>

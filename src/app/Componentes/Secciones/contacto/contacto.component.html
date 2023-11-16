@@ -1,0 +1,72 @@
+<section class="container-seccion">
+  <div class="titulo-seccion">
+    <button (click)="volver()" class="icon-back">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <h2>Contacto</h2>
+  </div>
+
+  <div class="container-elementos-seccion">
+    <mat-card class="card card-no-hover">
+      <mat-card-header>
+        <mat-card-title>Escríbeme un E-mail</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form ngNativeValidate class="form-Seccion">
+          <input
+            #email
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Ingrese su email"
+            required
+          />
+          <input
+            #subject
+            id="subject"
+            type="text"
+            name="subject"
+            placeholder="Asunto"
+            required
+          />
+          <textarea
+            #body
+            id="text-area"
+            placeholder="Contenido..."
+            name="contenido"
+            rows="10"
+            style="resize: none"
+            required
+          ></textarea>
+          <mat-card-actions>
+            <button
+              id="submit"
+              type="button"
+              mat-button
+              (click)="onSubmit(email.value, body.value, subject.value)"
+            >
+              Enviar
+            </button>
+          </mat-card-actions>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>
+
+<dialog class="dialog" id="dialog-login">
+  <mat-card class="card card-no-hover">
+    <mat-card-header>
+      <mat-card-title
+        >{{ dialogTitle }} <mat-icon>{{ dialogIcon }}</mat-icon></mat-card-title
+      >
+      <mat-card-subtitle> </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ dialogDescription }}</p>
+    </mat-card-content>
+    <mat-card-actions *ngIf="!sending">
+      <button mat-button (click)="closeDialog()">Aceptar</button>
+    </mat-card-actions>
+  </mat-card>
+</dialog>

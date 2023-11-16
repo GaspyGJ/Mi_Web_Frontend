@@ -1,0 +1,368 @@
+.bento-grid {
+  width: 100%;
+  display: grid;
+  gap: 25px;
+  grid-template-areas:
+    "titulo titulo titulo"
+    "experiencia educacion proyectos"
+    "cv-github centro habilidades"
+    "cv-github linkedin-correo linkedin-correo";
+  display: -ms-grid;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: visible;
+}
+.bento-grid > .bento-item:nth-child(1) {
+  opacity: 1;
+  grid-area: titulo;
+  height: 30px;
+  background-color: transparent;
+}
+.bento-grid > .bento-item:nth-child(2) {
+  grid-area: experiencia;
+}
+.bento-grid > .bento-item:nth-child(3) {
+  grid-area: educacion;
+}
+.bento-grid > .bento-item:nth-child(4) {
+  grid-area: habilidades;
+}
+.bento-grid > .bento-item:nth-child(5) {
+  grid-area: cv-github;
+}
+.bento-grid > .bento-item:nth-child(6) {
+  grid-area: centro;
+}
+.bento-grid > .bento-item:nth-child(7) {
+  grid-area: proyectos;
+}
+.bento-grid > .bento-item:nth-child(8) {
+  grid-area: linkedin-correo;
+}
+
+.bento-grid-animated-return {
+  opacity: 0;
+  -webkit-animation: aparicion-bento-return 2s ease 0s 1 normal forwards;
+  animation: aparicion-bento-return 2s ease 0s 1 normal forwards;
+}
+@-webkit-keyframes aparicion-bento-return {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes aparicion-bento-return {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+.seccion-name-hover{
+  font-size: 30px;
+  color: whitesmoke;
+}
+
+.bento-item {
+  background: var(--azul-medio-transparente);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 10px;
+  border-radius: 15px;
+  opacity: 0;
+  cursor: pointer;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+.bento-item:hover {
+  background: var(--azul-suave-transparente);
+}
+.bento-item img {
+  max-width: 200px;
+  height: auto;
+  aspect-ratio: 1/1;
+}
+.bento-item img:hover:not(.no-vibration) {
+  -webkit-animation: tilt-n-move-shaking 0.18s infinite;
+  animation: tilt-n-move-shaking 0.18s infinite;
+}
+.bento-item .no-vibration {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  -o-transition: transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+.bento-item .no-vibration:hover {
+  -webkit-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  transform: scale(1.15);
+}
+.bento-item:last-child {
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@-webkit-keyframes tilt-n-move-shaking {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  25% {
+    -webkit-transform: translate(0.8px, 0.8px);
+    transform: translate(0.8px, 0.8px);
+  }
+  50% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  75% {
+    -webkit-transform: translate(-0.8px, 0.8px);
+    transform: translate(-0.8px, 0.8px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+@keyframes tilt-n-move-shaking {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  25% {
+    -webkit-transform: translate(0.8px, 0.8px);
+    transform: translate(0.8px, 0.8px);
+  }
+  50% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  75% {
+    -webkit-transform: translate(-0.8px, 0.8px);
+    transform: translate(-0.8px, 0.8px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+.bento-animated {
+  opacity: 0;
+}
+.bento-animated:nth-child(2) {
+  -webkit-animation: fade-left 2s ease 0s 1 normal forwards;
+  animation: fade-left 2s ease 0s 1 normal forwards;
+}
+.bento-animated:nth-child(3) {
+  -webkit-animation: fade-top 2s ease 0.4s 1 normal forwards;
+  animation: fade-top 2s ease 0.4s 1 normal forwards;
+}
+.bento-animated:nth-child(4) {
+  -webkit-animation: fade-right 2s ease 0.2s 1 normal forwards;
+  animation: fade-right 2s ease 0.2s 1 normal forwards;
+}
+.bento-animated:nth-child(5) {
+  -webkit-animation: fade-bottom 2s ease 0.6s 1 normal forwards;
+  animation: fade-bottom 2s ease 0.6s 1 normal forwards;
+}
+.bento-animated:nth-child(7) {
+  -webkit-animation: fade-right 2s ease 0.8s 1 normal forwards;
+  animation: fade-right 2s ease 0.8s 1 normal forwards;
+}
+.bento-animated:nth-child(8) {
+  -webkit-animation: fade-bottom 2s ease 1s 1 normal forwards;
+  animation: fade-bottom 2s ease 1s 1 normal forwards;
+}
+.bento-animated:nth-child(6) {
+  opacity: 0;
+  background-color: transparent;
+  -webkit-animation: fade-center 1s ease 2s 1 normal forwards;
+  animation: fade-center 1s ease 2s 1 normal forwards;
+}
+@-webkit-keyframes fade-left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes fade-left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes fade-right {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes fade-right {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes fade-bottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes fade-bottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes fade-top {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes fade-top {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes fade-center {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-center {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/*
+@media screen and (max-width: 1400px) {
+  .bento-item img {
+  }
+}
+*/
+
+@media screen and (max-width: 1000px) {
+  .bento-item img {
+    min-width: 90px;
+    max-width: 145px;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+}
+@media screen and (max-width: 600px) {
+  .bento-grid > .bento-item:nth-child(1) {
+    display: none;
+  }
+  .bento-grid {
+    grid-template-areas:
+      "experiencia educacion"
+      "proyectos habilidades"
+      "cv-github cv-github"
+      "linkedin-correo linkedin-correo ";
+  }
+  .bento-grid > .bento-item:nth-child(5) {
+    flex-direction: row;
+  }
+  .bento-grid > .bento-item:nth-child(6) {
+    display: none;
+  }
+  .bento-item img {
+    max-width: 130px;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+}
+@media screen and (max-width: 350px) {
+  .bento-item img {
+    max-width: 90px;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+}

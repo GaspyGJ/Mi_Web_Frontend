@@ -1,0 +1,80 @@
+<div class="container-seccion">
+  <form class="flex-lista-vertical flex-center" ngNativeValidate>
+    <h3>Agregar Educacion:</h3>
+    <p>
+      Escribe sobre el/los atributo/s que deseas cambiar - Los atributos que no
+      se editen quedaran como estan
+    </p>
+    <div class="div-p-input">
+      <p>Titulo :</p>
+      <input
+        type="text"
+        #titulo
+        value="{{ default.titulo }}"
+        placeholder="ingresar Titulo"
+      />
+    </div>
+    <div class="div-p-input">
+      <p>Descripcion :</p>
+      <input
+        type="text"
+        #descripcion
+        value="{{ default.descripcion }}"
+        placeholder="ingresar descripcion"
+      />
+    </div>
+    <div class="div-p-input">
+      <p>Año de Ingreso :</p>
+      <select #anioStart id="years" class="input-select-items">
+        <option *ngFor="let year of yearsList" value="{{ year }}">
+          {{ year }}
+        </option>
+      </select>
+    </div>
+    <div class="div-p-input">
+      <p>Año de Ingreso :</p>
+      <select #anioEnd id="years" class="input-select-items">
+        <option *ngFor="let year of yearsList" value="{{ year }}">
+          {{ year }}
+        </option>
+      </select>
+    </div>
+    <div class="div-p-input">
+      <p>Estado Actual :</p>
+      <input
+        type="text"
+        #estadoActual
+        value="{{ default.estado }}"
+        placeholder="ingresar estado actual"
+      />
+    </div>
+    <div class="div-p-input">
+      <p>Certificado PDF :</p>
+      <input
+        type="file"
+        (change)="obtenerArchivo($event)"
+        accept="application/pdf"
+        placeholder="ingresar PDF"
+      />
+    </div>
+    <div class="container-a-btn">
+      <div>
+        <a mat-dialog-close>Volver</a>
+      </div>
+      <button
+        type="button"
+        (click)="
+          guardarEducacion(
+            titulo.value,
+            descripcion.value,
+            anioStart.value,
+            anioEnd.value,
+            estadoActual.value
+          )
+        "
+      >
+        Guardar
+      </button>
+    </div>
+  </form>
+</div>

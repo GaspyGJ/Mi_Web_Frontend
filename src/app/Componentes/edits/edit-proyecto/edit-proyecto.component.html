@@ -1,0 +1,51 @@
+<div class="container-seccion">
+    <form class="flex-lista-vertical flex-center" *ngIf="proyecto" ngNativeValidate>
+        <h3>Editar Proyecto:</h3>
+        <p>Escribe sobre el/los atributo/s que deseas cambiar - Los atributos que no se editen quedaran como estan
+        </p>
+        <div class="div-p-input">
+            <p>Titulo :</p>
+            <input type="text" #titulo value={{proyecto.titulo}} placeholder="ingresar titulo">
+        </div>
+        <div class="div-p-input">
+            <p>Descripcion :</p>
+            <input type="text" #descripcion value={{proyecto.descripcion}} placeholder="ingresar descripcion">
+        </div>
+        <div class="div-p-input">
+            <p>urlGitHub :</p>
+            <input type="text" #urlGitHub value={{proyecto.gitHubWeb}} placeholder="ingresar url de github">
+        </div>
+        <div class="div-p-input">
+            <p>urlAppWeb :</p>
+            <input type="text" #urlAppWeb value={{proyecto.direccionWeb}} placeholder="ingresar url de app Web">
+        </div>
+
+        <div class="div-p-input">
+            <p>Imagenes :</p>
+            <input type="file" #imagen (change)="obtenerArchivo($event)" accept="image/*"
+                placeholder="ingresar url de app Web">
+
+            <button type="button" class="btn" (click)="addFoto()"> Agregar Imagen</button>
+
+            <ul *ngFor="let imagen of listaImagenes">
+                <li>
+                    <img width="100em" height="100em" [src]="imagen.archivo" alt={{proyecto.titulo}}>
+                    <button id="btn-drop" type="button" (click)="dropFoto(imagen)">
+                        <mat-icon style="color:red">delete</mat-icon>
+                    </button>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="container-a-btn">
+            <div>
+                <a mat-dialog-close>Volver</a>
+            </div>
+            <button type="button" class="btn"
+                (click)="actualizar(titulo.value, descripcion.value , urlGitHub.value , urlAppWeb.value)">
+                Guardar Proyecto
+            </button>
+        </div>
+    </form>
+</div>

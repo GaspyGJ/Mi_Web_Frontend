@@ -1,0 +1,51 @@
+<div class="container-seccion">
+    <form class="flex-lista-vertical flex-center" ngNativeValidate>
+        <div>
+            <h3>Agregar Experiencia:</h3>
+            <p>Escribe sobre el/los atributo/s que deseas cambiar - Los atributos que no se editen quedaran como estan</p>
+        </div>
+        <div class="div-p-input">
+            <p>Titulo :</p>
+            <input type="text" #titulo value={{default.titulo}} placeholder="ingresar Titulo">
+        </div>
+        <div class="div-p-input">
+            <p>Descripcion :</p>
+            <input type="text" #descripcion value={{default.descripcion}} placeholder="ingresar descripcion">
+        </div>
+        <div class="div-p-input">
+            <p>Año de Ingreso :</p>
+            <select #anioStart id="years"  class="input-select-items">
+                <option *ngFor="let year of yearsList" value={{year}}>{{year}}</option>
+            </select>
+        </div>
+        <div class="div-p-input">
+            <p>Año de Ingreso :</p>
+            <select #anioEnd id="years"  class="input-select-items">
+                <option *ngFor="let year of yearsList" value={{year}}>{{year}}</option>
+            </select>
+        </div>
+        <div class="div-p-input">
+            <p>Tipo Experiencia :</p>
+            <input type="text" #tipoExperiencia value={{default.tipoExperiencia}}
+                placeholder="ingresar Tipo de Experiencia">
+        </div>
+        <div class="div-p-input">
+            <p>Tegnologias Utilizadas :</p>
+            <input type="text" #tegnologiasUtilizadas value={{default.tegnologiasUtilizadas}}
+                placeholder="ingresar Tegnologias Utilizadas">
+        </div> 
+        <div class="div-p-input">
+            <p>Link:</p>
+            <input type="text" #linkProyectos value={{default.link}} placeholder="ingresar link">
+        </div>
+        <div class="container-a-btn">
+            <div>
+                <a mat-dialog-close>Volver</a>
+            </div>
+        <button type="button"
+            (click)="guardarExperiencia(titulo.value,descripcion.value,anioStart.value,anioEnd.value,tipoExperiencia.value,tegnologiasUtilizadas.value,linkProyectos.value)">
+            Guardar
+        </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,75 @@
+<section class="container-seccion">
+  <div class="titulo-seccion">
+    <button (click)="volver()" class="icon-back">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <h2>Experiencia</h2>
+  </div>
+
+  <div *ngIf="!isLoad" style="display: flex; justify-content: center">
+    <span class="loader"></span>
+  </div>
+  <div *ngIf="isError">
+    <mat-card>
+      <mat-card-header style="margin: 0 auto">
+        <mat-card-title>Error</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>No se pudo conectar al servidor.</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div *ngIf="!isError && isLoad && experiencias.length == 0">
+    <mat-card>
+      <mat-card-header style="margin: 0 auto">
+        <mat-card-title>Lista de educaciones vacia</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>No hay datos en la base de datos.</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div *ngIf="isLoad" >
+    <div *ngIf="isLogged" style="background-color: white;">
+      <button class="btn-edit" mat-icon-button (click)="addExperiencia()">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button class="btn-edit" mat-icon-button (click)="editOrdenExperiencia()">
+        <mat-icon>edit orden</mat-icon>
+      </button>
+    </div>
+
+    <div class="container-elementos-seccion">
+      <mat-card class="card" *ngFor="let experiencia of experiencias">
+        <mat-card-header style="margin: 0 auto">
+          <mat-card-title>{{ experiencia.titulo }}</mat-card-title>
+          <mat-card-subtitle
+            >{{ experiencia.anioInicio }} -
+            {{ experiencia.anioFin }}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ experiencia.tipoExperiencia }}</p>
+          <p>{{ experiencia.descripcion }}</p>
+          <p style="text-align: center">
+            <span style="text-shadow: 0.5px 0 var(--negro)">{{
+              experiencia.tegnologiasUtilizadas
+            }}</span>
+          </p>
+          <p *ngIf="experiencia.link != ''">
+            <a target="_blank" href="{{ experiencia.link }}">Link</a>
+          </p>
+        </mat-card-content>
+        <mat-card-actions *ngIf="isLogged">
+          <button mat-icon-button (click)="editExperiencia(experiencia.id)">
+            <mat-icon color="red">edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="dropExperiencia(experiencia.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</section>

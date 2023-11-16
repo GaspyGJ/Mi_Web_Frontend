@@ -1,0 +1,141 @@
+<section class="container-seccion">
+  <div class="titulo-seccion" style="margin: 30px 0 30px 0">
+    <button (click)="volver()" class="icon-back">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <h2>Habilidades</h2>
+  </div>
+
+  <div *ngIf="!isLoadHardSkill" style="display: flex; justify-content: center">
+    <span class="loader"></span>
+  </div>
+  <div *ngIf="isErrorHardSkill">
+    <mat-card>
+      <mat-card-header style="margin: 0 auto">
+        <mat-card-title>Error</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>No se pudo conectar al servidor.</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div *ngIf="!isErrorHardSkill && isLoadHardSkill && hardSkills.length == 0">
+    <mat-card>
+      <mat-card-header style="margin: 0 auto">
+        <mat-card-title>Lista de educaciones vacia</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>No hay datos en la base de datos.</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div *ngIf="isLoadHardSkill">
+    <div class="tagForLogIn btn-container" *ngIf="isLogged" style="background-color: white;">
+      <button class="btn-edit" mat-icon-button (click)="addHardSkill()">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button class="btn-edit" mat-icon-button (click)="editOrdenHardSkill()">
+        <mat-icon>edit orden</mat-icon>
+      </button>
+    </div>
+
+    <div class="skill-container">
+      <div *ngFor="let hardSkill of hardSkills" id="{{ hardSkill.id }}">
+        <div class="tarjeta">
+          <img
+            src="{{ hardSkill.icon }}"
+            width="{{ hardSkill.anchoIcon }}"
+            height="{{ hardSkill.altoIcon }}"
+            alt="{{ hardSkill.titulo }}"
+          />
+        </div>
+
+        <div class="tagForLogIn btn-container" *ngIf="isLogged" style="background-color: white;">
+          <button
+            mat-icon-button
+            class="btn-edit"
+            (click)="editHardSkill(hardSkill.id)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button
+            mat-icon-button
+            class="btn-drop"
+            (click)="dropHardSkill(hardSkill.id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div *ngIf="!isLoadSoftSkill">
+      <span class="loader"></span>
+    </div>
+    <div *ngIf="isErrorSoftSkill">
+      <mat-card>
+        <mat-card-header style="margin: 0 auto">
+          <mat-card-title>Error</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>No se pudo conectar al servidor.</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div *ngIf="!isErrorSoftSkill && isLoadSoftSkill && softSkills.length == 0">
+      <mat-card>
+        <mat-card-header style="margin: 0 auto">
+          <mat-card-title>Lista de educaciones vacia</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>No hay datos en la base de datos.</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div *ngIf="isLoadSoftSkill">
+      <div class="tagForLogIn btn-container" *ngIf="isLogged" style="background-color: white;">
+        <button class="btn-edit" mat-icon-button (click)="addSoftSkill()">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button class="btn-edit" mat-icon-button (click)="editOrdenSoftSkill()">
+          <mat-icon>edit orden</mat-icon>
+        </button>
+      </div>
+
+      <div class="skill-container" style="margin-top:30px">
+        <div *ngFor="let softSkill of softSkills" id="{{ softSkill.id }}">
+          <div class="tarjeta">
+            <img
+              src="{{ softSkill.icon }}"
+              width="{{ softSkill.anchoIcon }}"
+              height="{{ softSkill.altoIcon }}"
+              alt="{{ softSkill.titulo }}"
+            />
+          </div>
+          <div class="tagForLogIn btn-container" *ngIf="isLogged" style="background-color: white;">
+            <button
+              mat-icon-button
+              class="btn-edit"
+              (click)="editSoftSkill(softSkill.id)"
+            >
+              <mat-icon color="red">edit</mat-icon>
+            </button>
+
+            <button
+              mat-icon-button
+              class="btn-drop"
+              (click)="dropSoftSkill(softSkill.id)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
