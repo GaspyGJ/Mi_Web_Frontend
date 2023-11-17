@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  _API:"https://mi-web-backend.up.railway.app"
-  //http://localhost:8080
+  //_API:"https://mi-web-backend.up.railway.app"
+  _API:"http://localhost:8080"
 };
 
 /*
