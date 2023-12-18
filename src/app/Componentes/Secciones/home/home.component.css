@@ -51,6 +51,7 @@
   align-items: center;
   border-radius: 50%;
   padding: 5px;
+  transform: scale(1);
   -webkit-animation-name: aparicion-icon-move-pagee;
   animation-name: aparicion-icon-move-page;
   -webkit-animation-delay: 2.5s;
