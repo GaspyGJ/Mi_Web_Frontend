@@ -3,6 +3,7 @@
 #### Sitio web personal desarrollado en Angular con conexión API (Java backend) para obtener informacion mostrada en la pagina desde una base de datos (MySql)
 
 [CLICK para visitar sitio](https://gasparjullier.up.railway.app/)
+</br>
 [Otra opcion CLICK AQUI](https://gaspygj.github.io/)
 
 <img src="./src/assets/imagenes/EsteProyecto/capturaOpenGraph.png" height=360px width=520px />
