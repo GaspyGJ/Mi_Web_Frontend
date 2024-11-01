@@ -1,15 +1,9 @@
-# Mi Web Frontend
+# My web frontend (with API conection)(deprecated)
 
-#### Sitio web personal desarrollado en Angular con conexión API (Java backend) para obtener informacion mostrada en la pagina desde una base de datos (MySql)
+#### Personal website development in Angular with connection to Java API and MySql database
 
-Servidor backend descontinuado !!! </br>
-Mejor mirar --> https://github.com/GaspyGJ/Mi_Web_Frontend_Static.  </br>
-Abrir web [CLICK AQUI](https://gaspy-dev.web.app/)
+Backend server (API java) DEPRECATED!!! </br>
+See frontend proyect without API conection --> [CLICK HERE](https://github.com/GaspyGJ/Mi_Web_Frontend_Static)
 
-<img src="./src/assets/imagenes/EsteProyecto/capturaOpenGraph.png" height=360px width=520px />
-
-<hr/>
-
-## Development server
-
+## How start proyect?
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
